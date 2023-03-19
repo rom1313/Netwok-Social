@@ -26,7 +26,7 @@ body {
 
 main {
   position: relative;
-  background-color: rgb(90, 0, 0);
+  background-color: rgb(26, 26, 26);
 
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@ main {
 }
 
 ul {
-  background-color: rgb(90, 0, 0);
+  background-color: rgb(125, 125, 125);
   position: fixed;
 
   list-style: none;
@@ -61,16 +61,30 @@ ul {
   height: fit-content;
 
   align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgb(45, 45, 45) 10%,
 
+    rgb(108, 108, 108) 90%,
+
+    rgb(119, 119, 119) 100%
+  );
   margin: auto;
 }
 
 li {
-  color: rgb(0, 0, 0);
   font-weight: bold;
   cursor: pointer;
   padding: 5px;
   border-radius: 5px;
+  transition: all 0.9s;
+  color: rgb(231, 231, 231);
+  text-shadow: 0px 0px 5px black;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+li:hover {
+  color: rgb(255, 252, 252);
+  text-shadow: 0px 0px 4px rgb(0, 157, 242);
 }
 #compteicon {
   position: absolute;
@@ -82,7 +96,7 @@ form {
   top: 30vw;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40vw;
+  width: 30vw;
   height: fit-content;
   padding: 2vw;
   background-color: rgba(0, 0, 0, 0.951);
@@ -99,6 +113,7 @@ form {
   display: none;
 }
 form button {
+  margin-top: 1vw;
   background-color: black;
   color: white;
   border-radius: 0.5vw;
@@ -108,6 +123,7 @@ form button {
   font-size: 1.1vw;
   box-sizing: border-box;
   display: flex;
+  font-family: "Site";
 }
 input:invalid {
   background-color: red;
@@ -139,8 +155,8 @@ label {
   width: 70vw;
   margin-top: 5vw;
   margin-bottom: 5vw;
-  background-color: rgba(255, 255, 255, 0.495);
-  border: solid 2px black;
+  background-color: rgba(71, 71, 71, 0.811);
+
   display: flex;
   flex-direction: column;
   padding: 2vw 5vw 2vw 5vw;
@@ -174,7 +190,7 @@ footer {
 }
 
 img {
-  width: 3vw;
+  width: 2vw;
   padding: 5px;
 }
 

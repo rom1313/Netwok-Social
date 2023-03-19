@@ -7,7 +7,7 @@ let form = false;
 onload = () => {
   creationarticle();
   genius.event("#compteicon", "click", () => {
-    console.log("yo");
+
     if (form === false) {
       profil(form);
       form = true;
