@@ -7,7 +7,7 @@ html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
   font-family: "Site";
   word-spacing: 0.2vw;
   height: 100%;
@@ -38,9 +38,29 @@ main {
   color: bisque;
   word-spacing: 0.4vw;
   margin-left: 1vw;
-  font-size: 3.2vw;
+  font-size: 3vw;
 
   text-shadow: 2px 2px 0.5vw rgb(0, 0, 0);
+}
+#titrehome img {
+  text-shadow: 0px 0px 10px red;
+  width: 15vw;
+  filter: invert() drop-shadow(0px 0px 2px rgb(255, 153, 0));
+  border-radius: 5px;
+  margin-left: -5.5vw;
+  margin-right: 20vw;
+}
+#blockrubis {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5vw;
+  margin-left: 4vw;
+}
+#rubiscount{color: rgb(255, 255, 255);
+font-size: 0.8vw;}
+#rubislogo {
+  width: 2vw;
+  filter: drop-shadow(0px 0px 5px red);
 }
 
 ul {
@@ -78,18 +98,21 @@ li {
   padding: 5px;
   border-radius: 5px;
   transition: all 0.9s;
-  color: rgb(231, 231, 231);
-  text-shadow: 0px 0px 5px black;
+  color: rgb(0, 0, 0);
+
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 li:hover {
-  color: rgb(255, 252, 252);
-  text-shadow: 0px 0px 4px rgb(0, 157, 242);
+  color: rgb(255, 157, 0);
+  text-shadow: 0px 0px 4px rgb(0, 0, 0);
 }
 #compteicon {
   position: absolute;
-  left: 93%;
+  left: 91%;
   cursor: pointer;
+  width: 2.2vw;
+  margin-left: 3vw;
+  ;
 }
 form {
   position: fixed;
@@ -153,7 +176,7 @@ label {
 .blockarticles {
   display: flex;
   width: 70vw;
-  margin-top: 5vw;
+  margin-top: 1vw;
   margin-bottom: 5vw;
   background-color: rgba(71, 71, 71, 0.811);
 
@@ -169,6 +192,7 @@ label {
 }
 .imagearticles {
   width: 30vw;
+  height: 16vw;
   margin-top: 2vw;
   border-top-right-radius: 5vw 5vw;
   border-bottom-left-radius: 5vw 5vw;
@@ -180,17 +204,29 @@ label {
   margin-top: 6vw;
   font-size: 2vw;
   font-family: "Times New Roman", Times, serif;
+  white-space: pre-wrap;
 }
 
 footer {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(15, 15, 15);
   display: flex;
   justify-content: center;
+  align-items: center;
   color: white;
+  font-size: 0.8vw;
+  height: 5vw;
+}
+#chatlogo {
+  filter: drop-shadow(0px 0px 5px rgb(255, 157, 0));
+  position: fixed;
+  z-index: 8;
+  bottom: 4%;
+  left: 2%;
+  cursor: pointer;
 }
 
 img {
-  width: 2vw;
+  width: 3vw;
   padding: 5px;
 }
 
