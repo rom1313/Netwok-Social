@@ -48,16 +48,19 @@ main {
   filter: invert() drop-shadow(0px 0px 2px rgb(255, 153, 0));
   border-radius: 5px;
   margin-left: -5.5vw;
-  margin-right: 20vw;
+  margin-right: 5vw;
 }
 #blockrubis {
+  position: absolute;
   display: flex;
   align-items: center;
   column-gap: 0.5vw;
-  margin-left: 4vw;
+  left: 85%;
 }
-#rubiscount{color: rgb(255, 255, 255);
-font-size: 0.8vw;}
+#rubiscount {
+  color: rgb(255, 255, 255);
+  font-size: 0.8vw;
+}
 #rubislogo {
   width: 2vw;
   filter: drop-shadow(0px 0px 5px red);
@@ -112,7 +115,6 @@ li:hover {
   cursor: pointer;
   width: 2.2vw;
   margin-left: 3vw;
-  ;
 }
 form {
   position: fixed;
