@@ -1,5 +1,8 @@
-import { articles } from "./variables";
-
+import { articles, donnees } from "./variables";
+import { genius } from "../index.js/";
+// todo ---------------------------------------------------------------------
+// todo --------------------- creation Aticles -------------------
+// todo ---------------------------------------------------------------------
 export function creationarticle() {
   articles.forEach((element) => {
     let div = document.createElement("div");
@@ -24,10 +27,41 @@ export function creationarticle() {
     document.querySelector("main").appendChild(div);
   });
 }
+// todo ---------------------------------------------------------------------
+// todo --------------------- affichage formulaire -------------------
+// todo ---------------------------------------------------------------------
 export function profil(form) {
   if (form === true) {
     document.querySelector("form").style.display = "none";
   } else if (form === false) {
     document.querySelector("form").style.display = "flex";
   }
+}
+// todo ---------------------------------------------------------------------
+// todo --------------------- MAJ profil -------------------
+// todo ---------------------------------------------------------------------
+export function chargementprofil(utilisateurparam) {
+  if (utilisateurparam.nom === "invité") {
+    if (localStorage.getItem("nom") === null || localStorage.getItem("nom") === "invité") {
+    }
+  } else {
+    donnees.utilisateur = utilisateurparam;
+    localStorage.setItem("nom", utilisateurparam.nom);
+    document.querySelector("#rubiscount").textContent = donnees.utilisateur.rubis;
+    document.querySelector("form").style.display = "none";
+    donnees.formouvert = false;
+    donnees.profilconnecte = true;
+  }
+}
+// todo ---------------------------------------------------------------------
+// todo --------------------- Error form -------------------
+// todo ---------------------------------------------------------------------
+export function errorform(text) {
+  let perror = document.createElement("p");
+  perror.textContent = text;
+  perror.className = "perror";
+  document.querySelector("form").appendChild(perror);
+  genius.timeursecondes(1, () => {
+    perror.remove();
+  });
 }

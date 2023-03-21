@@ -1,3 +1,5 @@
+import json from "../variableJSON.json";
+
 export const articles = [
   {
     nom: "Le futur dans nos mains",
@@ -6,9 +8,23 @@ export const articles = [
     auteur: "Jonh",
   },
   {
-    nom: "nomartijikjicle",
+    nom: "Une nuit de rêve",
     text: "Blabla, c'est qu454545454oi c'est cool je fais un test à la con pour voir comment ça va marcher hihihih !!",
     image: "https://zupimages.net/up/23/12/qzv4.jpg",
-    auteur: "Jonh",
+    auteur: "Elsa",
   },
 ];
+
+export class Profil {
+  constructor() {
+    this.nom = "invité";
+    this.rubis = 0;
+  }
+}
+
+export const donnees = {
+  utilisateur: new Profil(),
+  io: "https://geniusjs.herokuapp.com",
+  formouvert: false,
+  profilconnecte: false,
+};

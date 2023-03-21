@@ -6,17 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Super Network</title>
     <link rel="stylesheet" href="index.css" />
-    <link
-      rel="shortcut icon"
-      href="./ressources/img/NertworkLogo.svg.2023_03_19_23_07_19.0.svg"
-      type="image/svg"
-    />
+    <link rel="shortcut icon" href="./ressources/img/NertworkLogo.svg.2023_03_19_23_07_19.0.svg" type="image/svg" />
   </head>
 
   <body>
     <ul>
-      <img src="./ressources/img/NertworkLogo.svg" alt="" srcset="" /><span
-        id="titrehome"
+      <img src="./ressources/img/NertworkLogo.svg" alt="" srcset="" /><span id="titrehome"
         ><img src="./ressources/img/supernetwork.svg" alt="" srcset=""
       /></span>
       <li>Home</li>
@@ -24,20 +19,22 @@
       <li id="articles">Shop</li>
       <li>Contact</li>
       <div id="blockrubis">
-          <img id="rubislogo" src="./ressources/img/rubis.svg" alt="" srcset="">
-          <span id="rubiscount" >11540</span>
+        <img id="rubislogo" src="./ressources/img/rubis.svg" alt="" srcset="" />
+        <span id="rubiscount">0</span>
       </div>
-    
+
       <img id="compteicon" src="./ressources/img/compte.svg" alt="" srcset="" />
     </ul>
-    <form action="post">
+    <form>
       <p id="fermerform">✖</p>
       <label for="name">Pseudo</label>
-      <input type="text" id="inputname" name="name" />
+      <input type="text" id="inputname" name="name" maxlength="13" required />
       <label for="name">Mot de passe</label>
-      <input type="text" id="inputpass" name="pass" />
-      <button>Connexion</button>
-      <button>S'enregistrer</button>
+      <div id="blockpass"><input type="password" id="inputpass" name="pass" maxlength="20" required /><span id="spanpass">👁</span></div>
+
+      <button id="connexionform">Connexion</button>
+      <span id="senregistrer">S'enregistrer</span>
+      <button id="enregistrementform">S'enregistrer</button>
     </form>
 
     <main></main>
@@ -45,7 +42,7 @@
       <img id="chatlogo" src="./ressources/img/chat.svg" alt="" srcset="" />
       <p>SuperNetwork©2023</p>
     </footer>
-
+    <script src="./librairies/socketio.js"></script>
     <script src="https://unpkg.com/@rom13/genius-browser@1.0.53/index.js"></script>
     <script type="module" src="bundleindex.js"></script>
   </body>
