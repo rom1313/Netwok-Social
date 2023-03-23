@@ -14,21 +14,23 @@ const profilBDD = {
   nom: "rom",
   rubis: 200,
 };
-const socket = io(donnees.io); 
+const socket = io(donnees.io);
 // todo ---------------------------------------------------------------------
 // todo --------------------- onload / main -------------------
 // todo ---------------------------------------------------------------------
 onload = () => {
-  let positionX;
-  let positionY;
+  let block = document.querySelector("#blockcard");
+  let w = block.clientWidth;
+  let h = block.clientHeight;
+  let b = block.getBoundingClientRect();
 
-  window.onmousemove = (e) => {
-    console.log("souris bouge");
-    positionX = e.clientX;
-    positionY = e.clientY;
-    console.log(positionX);
-    document.documentElement.style.setProperty("--y");
-  };
+  block.addEventListener("mousemove", (e) => {
+    let X = (e.clientX - b.left) / w;
+    let Y = (e.clientY - b.top) / h;
+
+    document.documentElement.style.setProperty("--lightpositionX", 100 * X + "%");
+    document.documentElement.style.setProperty("--lightpositionY", 100 * Y + "%");
+  });
 
   let couleur = getComputedStyle(document.documentElement).getPropertyValue("--rouge");
   /*  
@@ -38,20 +40,15 @@ onload = () => {
     document.querySelector("#blockcard").style.transform = `rotateX(${positionX}%)`;
   }); */
 
-  console.log(couleur);
 
-  console.table(donnees.utilisateur);
 
   chargementprofil(donnees.utilisateur);
 
   /*  chargementprofil(profilBDD) */
-  console.table(donnees.utilisateur);
 
   /*  creationarticle(); */
 };
 // todo ----- Main --------
-
-genius.salaireSMIC(24, "net", "log");
 
 // todo ---------------------------------------------------------------------
 // todo --------------------- Events -------------------
@@ -100,7 +97,7 @@ genius.event("#connexionform", "click", (e) => {
 // todo ---------------------------------------------------------------------
 // todo --------------------- socket -------------------
 // todo ---------------------------------------------------------------------
- socket.on("reponseconnexionnetworkok", (data) => {
+socket.on("reponseconnexionnetworkok", (data) => {
   donnees.utilisateur = data;
   chargementprofil(donnees.utilisateur);
   console.log(donnees.utilisateur);
@@ -111,4 +108,3 @@ socket.on("reponseconnexionnetworkerror", (data) => {
   errorform("Pseudo ou mot de passe incorrect");
   console.log("error");
 });
- 

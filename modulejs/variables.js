@@ -29,6 +29,3 @@ export const donnees = {
   profilconnecte: false,
 };
 
-(function (){
-console.log('yo');
-})()

@@ -4,8 +4,7 @@
 }
 :root {
   --rouge: rgb(123, 0, 0);
-  --y: 25deg;
-  --x: 40deg;
+  --jaune: rgb(255, 157, 0);
 }
 
 html {
@@ -36,12 +35,107 @@ body {
 
 main {
   position: relative;
-
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 20vh;
   transition: all 1s;
+}
+.titre {
+  background-color: bisque;
+  border-radius: 0.5vw;
+  padding: 0.5vw;
+  box-shadow: 0px 0px 2px black inset;
+  filter: drop-shadow(0px 0px 5px rgb(0, 0, 0));
+  margin-bottom: 4vw;
+}
+.titreanimation {
+}
+#blockchat {
+  width: 20vw;
+  height: 70vh;
+  background-color: rgb(0, 0, 0);
+  position: fixed;
+  top: 15%;
+  left: 2%;
+  display: flex;
+  border-radius: 1vw;
+  transform: translate(-50% -50%);
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0px 0px 5px var(--jaune));
+  z-index: 2;
+}
+#chat {
+  width: 90%;
+  height: 80%;
+
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  border-top-left-radius: 1vw;
+  border-top-right-radius: 1vw;
+  display: flex;
+  word-wrap: break-word;
+  overflow-y: scroll;
+
+  overflow-x: hidden;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+}
+::-webkit-scrollbar {
+  background: #000000;
+  opacity: 0;
+  width: 0.8vw;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(104, 104, 104);
+
+  cursor: url("/img/mouse2.png"), pointer;
+}
+::-webkit-scrollbar-thumb:hover {
+
+}
+#chat p {
+  display: flex;
+  flex-direction: column;
+  color: rgb(232, 232, 232);
+  width: 100%;
+  height: 100%;
+  white-space: break-spaces;
+  margin: 1vw;
+  z-index: 2;
+  font-size: 1vw;
+  line-height: 3.5vh;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+#pseudochat {
+  margin-bottom: 1vw;
+  margin-top: 1vw;
+  font-size: 1.5vw;
+  color: var(--jaune);
+  font-family: "Site";
+}
+#pseudochat::after {
+  content: " :";
+}
+#inputchat {
+  position: absolute;
+  bottom: 3vh;
+  width: 80%;
+  outline: none;
+  border: none;
+  border-radius: 0.2vw;
+  background-color: rgb(44, 44, 44);
+  color: var(--jaune);
+  padding: 1vh;
+  font-family: "Site";
+  display: flex;
+  font-size: 1vw;
 }
 
 #blockcard {
@@ -51,30 +145,26 @@ main {
   position: relative;
   background-color: black;
   transition: all 0.5s ease-in-out;
-}
-#brillance {
-  width: 100%;
-  position: absolute;
-  height: 100%;
-  padding: 0;
+  display: flex;
   margin: 0;
+  padding: 0px;
 }
-#brillance:hover {
-  mix-blend-mode: overlay;
-}
-#divcard {
+
+#lightcard {
   position: absolute;
-  width: fit-content;
   width: 100%;
   height: 100%;
+
   mix-blend-mode: soft-light;
   border-radius: 15px;
 }
-#divcard:hover {
-  background: radial-gradient(farthest-corner circle at 50% 50%, rgb(255, 0, 230) 1%, transparent 99%);
+#lightcard:hover {
+  background: radial-gradient(farthest-corner circle at var(--lightpositionX) var(--lightpositionY), rgb(0, 255, 242) 10%, transparent 90%);
 }
 #blockcard:hover {
-  transform: rotateY(var(--y));
+  rotate: y 15deg;
+
+  /*   transform: rotateY(var(--x)); */
 
   box-shadow: 15px 2px 10px black;
 }
@@ -84,8 +174,27 @@ main {
   width: 22vw;
   border-radius: 15px;
 }
-#card:hover {
+#textcard {
+  position: absolute;
+  color: rgb(255, 255, 255);
+
+  font-style: bold;
+  background-color: rgb(0, 0, 0);
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5vw;
+  border-radius: 5px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  width: 100%;
+
+  padding: 2px;
+  margin: 0;
+  z-index: 4;
 }
+#textcard:hover {
+}
+
 #titrehome {
   color: bisque;
   word-spacing: 0.4vw;
@@ -155,10 +264,9 @@ li {
   transition: all 0.9s;
   color: rgb(0, 0, 0);
   font-size: 1.5vw;
-  font-family: Georgia, "Times New Roman", Times, serif;
 }
 li:hover {
-  color: rgb(255, 157, 0);
+  color: var(--jaune);
   text-shadow: 0px 0px 4px rgb(0, 0, 0);
 }
 #compteicon {
@@ -302,13 +410,13 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--rouge);
+  color: white;
   font-size: 0.8vw;
   height: 5vw;
   margin-top: 5vw;
 }
 #chatlogo {
-  filter: drop-shadow(0px 0px 5px rgb(255, 157, 0));
+  filter: drop-shadow(0px 0px 5px var(--jaune));
   position: fixed;
   z-index: 8;
   bottom: 4%;
