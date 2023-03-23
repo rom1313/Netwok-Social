@@ -14,7 +14,7 @@ const profilBDD = {
   nom: "rom",
   rubis: 200,
 };
-/* const socket = io(donnees.io); */
+const socket = io(donnees.io); 
 // todo ---------------------------------------------------------------------
 // todo --------------------- onload / main -------------------
 // todo ---------------------------------------------------------------------
@@ -100,7 +100,7 @@ genius.event("#connexionform", "click", (e) => {
 // todo ---------------------------------------------------------------------
 // todo --------------------- socket -------------------
 // todo ---------------------------------------------------------------------
-/* socket.on("reponseconnexionnetworkok", (data) => {
+ socket.on("reponseconnexionnetworkok", (data) => {
   donnees.utilisateur = data;
   chargementprofil(donnees.utilisateur);
   console.log(donnees.utilisateur);
@@ -111,4 +111,4 @@ socket.on("reponseconnexionnetworkerror", (data) => {
   errorform("Pseudo ou mot de passe incorrect");
   console.log("error");
 });
- */
+ 
