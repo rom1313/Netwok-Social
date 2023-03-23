@@ -1,5 +1,5 @@
 {  "scripts": {
-  "buildindex": "esbuild index.js --bundle --minify --outfile=bundleindex.js --watch"
+  "buildindex": "esbuild index.js --bundle --minify --outfile=bundleindex.js --watch "
 },
   "dependencies": {
     "esbuild": "^0.17.12"

@@ -28,3 +28,7 @@ export const donnees = {
   formouvert: false,
   profilconnecte: false,
 };
+
+(function (){
+console.log('yo');
+})()

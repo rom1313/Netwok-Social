@@ -14,11 +14,32 @@ const profilBDD = {
   nom: "rom",
   rubis: 200,
 };
-const socket = io(donnees.io);
+/* const socket = io(donnees.io); */
 // todo ---------------------------------------------------------------------
 // todo --------------------- onload / main -------------------
 // todo ---------------------------------------------------------------------
 onload = () => {
+  let positionX;
+  let positionY;
+
+  window.onmousemove = (e) => {
+    console.log("souris bouge");
+    positionX = e.clientX;
+    positionY = e.clientY;
+    console.log(positionX);
+    document.documentElement.style.setProperty("--y");
+  };
+
+  let couleur = getComputedStyle(document.documentElement).getPropertyValue("--rouge");
+  /*  
+  document.documentElement.style.setProperty("--x", 1055 + "%"); */
+  /*   document.querySelector("#blockcard").addEventListener("mouseover", () => {
+    console.log("mouse");
+    document.querySelector("#blockcard").style.transform = `rotateX(${positionX}%)`;
+  }); */
+
+  console.log(couleur);
+
   console.table(donnees.utilisateur);
 
   chargementprofil(donnees.utilisateur);
@@ -79,7 +100,7 @@ genius.event("#connexionform", "click", (e) => {
 // todo ---------------------------------------------------------------------
 // todo --------------------- socket -------------------
 // todo ---------------------------------------------------------------------
-socket.on("reponseconnexionnetworkok", (data) => {
+/* socket.on("reponseconnexionnetworkok", (data) => {
   donnees.utilisateur = data;
   chargementprofil(donnees.utilisateur);
   console.log(donnees.utilisateur);
@@ -90,3 +111,4 @@ socket.on("reponseconnexionnetworkerror", (data) => {
   errorform("Pseudo ou mot de passe incorrect");
   console.log("error");
 });
+ */
