@@ -9,7 +9,7 @@ export function creationarticle() {
     div.className = "blockarticles";
     let h1 = document.createElement("h1");
     h1.textContent = element.nom;
-    let h2 = document.createElement("h1");
+    let h2 = document.createElement("h2");
     h2.textContent = element.auteur;
 
     let p = document.createElement("p");

@@ -1,11 +1,9 @@
-import json from "../variableJSON.json";
-
 export const articles = [
   {
-    nom: "Le futur dans nos mains",
-    text: "Blabla, c'est quoi c'est cool je fais un test à la con pour voir comment ça va marcher hihihih !! \n\nensuite, je suis un gars cool ahahah ce site est super necessary !",
-    image: "https://zupimages.net/up/23/11/nj96.jpg",
-    auteur: "Jonh",
+    nom: "Online Font creator",
+    text: "Voici un petit site sympa pour créer votre propre Font ! \nIl faudra vous armé de patience pour faire toutes vos lettres..La bonne nouvelle est qu'il vous propose aussi de modifier des fonts existantes. 🤘🏼",
+    image: "../ressources/img/articles/font.webp",
+    auteur: "https://fontark.net/farkwp",
   },
   {
     nom: "Une nuit de rêve",
@@ -28,4 +26,3 @@ export const donnees = {
   formouvert: false,
   profilconnecte: false,
 };
-

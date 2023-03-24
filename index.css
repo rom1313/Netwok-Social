@@ -67,6 +67,7 @@ main {
   align-items: center;
   filter: drop-shadow(0px 0px 5px var(--jaune));
   z-index: 2;
+  display: none;
 }
 #chat {
   width: max-content;
@@ -204,7 +205,9 @@ li {
   border-radius: 5px;
   transition: all 0.9s;
   color: rgb(0, 0, 0);
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 1.4vw;
+  font-style: bold;
 }
 li:hover {
   color: var(--jaune);
@@ -314,25 +317,32 @@ label {
 }
 .blockarticles {
   display: flex;
-  width: 70vw;
+  width: 50vw;
+  height: 70vh;
   margin-top: 1vw;
   margin-bottom: 5vw;
-  background-color: rgba(71, 71, 71, 0.811);
-
+  background-color: rgba(41, 41, 41, 0.689);
+  border: solid rgb(0, 0, 0) 1px;
   display: flex;
   flex-direction: column;
-  padding: 2vw 5vw 2vw 5vw;
+  padding: 2vw 3vw 2vw 5vw;
   overflow: hidden;
-  border-radius: 15px;
-
+  border-top-right-radius: 10vw;
+  border-top-left-radius: 10vw;
+  box-shadow: 0px 0px 4px rgb(30, 30, 30);
   text-align: auto;
   justify-content: center;
   align-items: center;
 }
+.blockarticles h1 {
+  font-size: 3vw;
+  color: rgb(0, 0, 0);
+}
+
 .imagearticles {
   width: 30vw;
   height: 16vw;
-  margin-top: 2vw;
+
   border-top-right-radius: 5vw 5vw;
   border-bottom-left-radius: 5vw 5vw;
   box-shadow: 0px 0px 10px black;
@@ -340,10 +350,13 @@ label {
   padding: 0;
 }
 .textearticles {
-  margin-top: 6vw;
-  font-size: 2vw;
+  margin-top: 2vw;
+  font-size: 1.5vw;
   font-family: "Times New Roman", Times, serif;
   white-space: pre-wrap;
+  line-height: 4vh;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 2px black;
 }
 
 footer {
@@ -353,7 +366,7 @@ footer {
   align-items: center;
   color: white;
   font-size: 0.8vw;
-  height: 5vw;
+  height: 6vw;
   margin-top: 10vw;
 }
 #chatlogo {
