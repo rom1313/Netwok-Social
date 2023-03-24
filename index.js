@@ -9,50 +9,66 @@ import { Profil, donnees, form } from "./modulejs/variables";
 // todo --------------------- variables -------------------
 // todo ---------------------------------------------------------------------
 export const genius = $;
-
+let pageactuel = "home";
+let scriptencours;
+const card = "#blockcard";
 const profilBDD = {
   nom: "rom",
   rubis: 200,
 };
 const socket = io(donnees.io);
+
 // todo ---------------------------------------------------------------------
 // todo --------------------- onload / main -------------------
 // todo ---------------------------------------------------------------------
 onload = () => {
-  let block = document.querySelector("#blockcard");
-  let w = block.clientWidth;
-  let h = block.clientHeight;
-  let b = block.getBoundingClientRect();
-
-  block.addEventListener("mousemove", (e) => {
-    let X = (e.clientX - b.left) / w;
-    let Y = (e.clientY - b.top) / h;
-
-    document.documentElement.style.setProperty("--lightpositionX", 100 * X + "%");
-    document.documentElement.style.setProperty("--lightpositionY", 100 * Y + "%");
-  });
-
-  let couleur = getComputedStyle(document.documentElement).getPropertyValue("--rouge");
-  /*  
-  document.documentElement.style.setProperty("--x", 1055 + "%"); */
-  /*   document.querySelector("#blockcard").addEventListener("mouseover", () => {
-    console.log("mouse");
-    document.querySelector("#blockcard").style.transform = `rotateX(${positionX}%)`;
-  }); */
-
-
-
   chargementprofil(donnees.utilisateur);
 
-  /*  chargementprofil(profilBDD) */
+  // todo ----- Card effect --------
+
+  let couleur = getComputedStyle(document.documentElement).getPropertyValue("--rouge"); // obtenir une variable du css
+
+  // todo ----- Main --------
+  // TODO FECTH PAGES ---------------------------------------
+  // todo ----------------------------------------------------- Page test
 
   /*  creationarticle(); */
 };
-// todo ----- Main --------
 
 // todo ---------------------------------------------------------------------
 // todo --------------------- Events -------------------
 // todo ---------------------------------------------------------------------
+// todo Event Nav Home -----------
+genius.event("#lihome", "click", () => {
+  if (pageactuel === "home") {
+  } else {
+    document.querySelector("#blockcard").remove();
+    scriptencours.remove();
+    document.querySelector("main").innerHTML = "";
+    pageactuel = "home";
+  }
+});
+
+// todo Event Nav Articles -----------
+genius.event("#liarticles", "click", () => {
+  fetch("./pages/test.html").then((response) => {
+    response.text().then((text) => {
+      let pagetest = text;
+
+      document.querySelector("main").innerHTML = pagetest;
+    });
+
+    fetch("./pages/test.mjs")
+      .then((response) => response.text())
+      .then((txt) => {
+        scriptencours = document.createElement("script");
+        scriptencours.innerHTML = txt;
+        document.querySelector("#blockcard").appendChild(scriptencours);
+      });
+    pageactuel = "articles";
+  });
+});
+// todo Event logo profil -----------
 genius.event("#compteicon", "click", () => {
   if (donnees.profilconnecte === true) {
   } else {
@@ -65,6 +81,7 @@ genius.event("#compteicon", "click", () => {
     }
   }
 });
+// todo Event masque / afficher pass (form) -----------
 genius.event("#spanpass", "click", () => {
   if (document.querySelector("#inputpass").type === "text") {
     document.querySelector("#inputpass").type = "password";
@@ -72,12 +89,12 @@ genius.event("#spanpass", "click", () => {
     document.querySelector("#inputpass").type = "text";
   }
 });
-
+// todo Event fermer form -----------
 genius.event("#fermerform", "click", () => {
   profil(donnees.formouvert);
   donnees.formouvert = false;
 });
-
+// todo Event connexion form (boutton) -----------
 genius.event("#connexionform", "click", (e) => {
   e.preventDefault();
   let inputname = document.querySelector("#inputname");
@@ -97,13 +114,14 @@ genius.event("#connexionform", "click", (e) => {
 // todo ---------------------------------------------------------------------
 // todo --------------------- socket -------------------
 // todo ---------------------------------------------------------------------
+// todo Event CONNEXION OK SERVER -----------
 socket.on("reponseconnexionnetworkok", (data) => {
   donnees.utilisateur = data;
   chargementprofil(donnees.utilisateur);
   console.log(donnees.utilisateur);
   console.log("Reponse du genius serveur ok");
 });
-
+// todo Event CONNEXION ERROR SERVER -----------
 socket.on("reponseconnexionnetworkerror", (data) => {
   errorform("Pseudo ou mot de passe incorrect");
   console.log("error");

@@ -1,7 +1,1 @@
-{  "scripts": {
-  "buildindex": "esbuild index.js --bundle --minify --outfile=bundleindex.js --watch "
-},
-  "dependencies": {
-    "esbuild": "^0.17.12"
-  }
-}
+{"scripts":{"buildindex":"esbuild index.js --bundle --minify --outfile=bundleindex.js --watch "},"dependencies":{"@polymer/polymer":"^3.5.1","esbuild":"^0.17.12"}}

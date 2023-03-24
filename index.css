@@ -31,6 +31,7 @@ body {
   position: relative;
   height: 100%;
   width: 100%;
+  z-index: 0;
 }
 
 main {
@@ -53,7 +54,7 @@ main {
 .titreanimation {
 }
 #blockchat {
-  width: 20vw;
+  width: 40vh;
   height: 70vh;
   background-color: rgb(0, 0, 0);
   position: fixed;
@@ -68,9 +69,9 @@ main {
   z-index: 2;
 }
 #chat {
-  width: 90%;
+  width: max-content;
   height: 80%;
-
+  position: absolute;
   background-color: rgb(0, 0, 0);
   position: absolute;
   z-index: 2;
@@ -85,7 +86,6 @@ main {
   max-width: 100%;
   justify-content: center;
   align-items: center;
-  padding: 1vw;
 }
 ::-webkit-scrollbar {
   background: #000000;
@@ -95,10 +95,9 @@ main {
 ::-webkit-scrollbar-thumb {
   background: rgb(104, 104, 104);
 
-  cursor: url("/img/mouse2.png"), pointer;
+  cursor: pointer;
 }
 ::-webkit-scrollbar-thumb:hover {
-
 }
 #chat p {
   display: flex;
@@ -136,64 +135,6 @@ main {
   font-family: "Site";
   display: flex;
   font-size: 1vw;
-}
-
-#blockcard {
-  border-radius: 15px;
-  -webkit-transition: all 0.5s ease-in;
-  box-shadow: 3px 0px 10px black;
-  position: relative;
-  background-color: black;
-  transition: all 0.5s ease-in-out;
-  display: flex;
-  margin: 0;
-  padding: 0px;
-  will-change: transform;
-}
-
-#lightcard {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-
-  mix-blend-mode: soft-light;
-  border-radius: 15px;
-}
-#lightcard:hover {
-  background: radial-gradient(farthest-corner circle at var(--lightpositionX) var(--lightpositionY), rgb(0, 255, 242) 10%, transparent 90%);
-}
-#blockcard:hover {
-  rotate: y 15deg;
-
-  /*   transform: rotateY(var(--x)); */
-
-  box-shadow: 15px 2px 10px black;
-}
-#card {
-  padding: 0;
-  margin: 0;
-  width: 22vw;
-  border-radius: 15px;
-}
-#textcard {
-  position: absolute;
-  color: rgb(255, 255, 255);
-
-  font-style: bold;
-  background-color: rgb(0, 0, 0);
-  top: 95%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2.5vw;
-  border-radius: 5px;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  width: 100%;
-
-  padding: 2px;
-  margin: 0;
-  z-index: 4;
-}
-#textcard:hover {
 }
 
 #titrehome {
@@ -258,13 +199,12 @@ ul {
 }
 
 li {
-  font-weight: bold;
   cursor: pointer;
   padding: 5px;
   border-radius: 5px;
   transition: all 0.9s;
   color: rgb(0, 0, 0);
-  font-size: 1.5vw;
+  font-size: 1.4vw;
 }
 li:hover {
   color: var(--jaune);
@@ -279,10 +219,10 @@ li:hover {
 }
 form {
   position: fixed;
-  top: 28vw;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30vw;
+  width: 25vw;
   height: fit-content;
   padding: 1.5vw;
   background-color: rgba(0, 0, 0, 0.951);
@@ -316,7 +256,7 @@ input:invalid {
 }
 #inputname,
 #inputpass {
-  height: 1%;
+  height: 2vw;
   width: 50%;
   font-size: 2vw;
   padding: 0.5vw;
@@ -329,10 +269,10 @@ input:invalid {
   top: 0;
   left: 90%;
   cursor: pointer;
-  font-size: 2vw;
+  font-size: 1.2vw;
 }
 label {
-  font-size: 2vw;
+  font-size: 1.4vw;
   margin: 1vw;
 }
 #inputname:focus,
@@ -414,7 +354,7 @@ footer {
   color: white;
   font-size: 0.8vw;
   height: 5vw;
-  margin-top: 5vw;
+  margin-top: 10vw;
 }
 #chatlogo {
   filter: drop-shadow(0px 0px 5px var(--jaune));
